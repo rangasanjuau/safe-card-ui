@@ -14,40 +14,40 @@ export default function App() {
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
 
-async function onCreate(e) {
-  e.preventDefault();
-  setError('');
-  try {
-    const out = await createCard(name, pan);
-    setResults([out, ...results]);
-    setPan('');
-  } catch (err) {
-    // Map Spring Boot error JSON to user-friendly UI
-    if (err.message) {
-      setError(err.message);
-    } else if (err.error) {
-      setError(err.error); // fallback
-    } else {
-      setError('Something went wrong. Please try again.');
+  async function onCreate(e) {
+    e.preventDefault();
+    setError('');
+    try {
+      const out = await createCard(name, pan);
+      setResults([out, ...results]);
+      setPan('');
+    } catch (err) {
+      // Map Spring Boot error JSON to user-friendly UI
+      if (err.message) {
+        setError(err.message);
+      } else if (err.error) {
+        setError(err.error); // fallback
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     }
   }
-}
 
   async function onSearchFull() {
     setError('');
     try {
       setResults(await searchByPan(q));
-    } catch (err){
+    } catch (err) {
 
       console.error(err);
-       // Map Spring Boot error JSON to user-friendly UI
-    if (err.message) {
-      setError(err.message);
-    } else if (err.error) {
-      setError(err.error); // fallback
-    } else {
-      setError('Something went wrong. Please try again.');
-    }
+      // Map Spring Boot error JSON to user-friendly UI
+      if (err.message) {
+        setError(err.message);
+      } else if (err.error) {
+        setError(err.error); // fallback
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     }
   }
 
@@ -55,13 +55,21 @@ async function onCreate(e) {
     setError('');
     try {
       setResults(await searchByLast4(q));
-    } catch {
-      setError('Search failed 1');
+    } catch (err) {
+
+      console.error(err);
+      if (err.message) {
+        setError(err.message);
+      } else if (err.error) {
+        setError(err.error); // fallback
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     }
   }
 
   return (
-    <div style={{ maxWidth: 680, margin: '2rem auto', fontFamily: 'Inter,system-ui,sans-serif',  padding: '0 1rem' }}>
+    <div style={{ maxWidth: 680, margin: '2rem auto', fontFamily: 'Inter,system-ui,sans-serif', padding: '0 1rem' }}>
       <Header />
       <CreateCardForm name={name} pan={pan} setName={setName} setPan={setPan} onCreate={onCreate} />
       <Search q={q} setQ={setQ} onSearchFull={onSearchFull} onSearchLast4={onSearchLast4} />

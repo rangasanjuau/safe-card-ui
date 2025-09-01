@@ -1,12 +1,58 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Safe Card UI
+Overview
 
-Currently, two official plugins are available:
+Safe Card UI is a frontend application built with React and Vite, designed to manage and display card information securely. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+* React: JavaScript library for building user interfaces.
+
+* Vite: Next-generation, fast build tool.
+
+* ESLint: Linting tool for identifying and fixing problems in JavaScript code.
+
+## Setup Instructions
+
+To get started with the Safe Card UI project locally, follow these steps:
+
+### Prerequisites
+
+* Ensure you have the following installed:
+
+* Node.js
+ (version 16.8 or higher)
+
+* npm
+ (Node Package Manager)
+
+### Installation
+
+* Clone the repository:
+
+```bash
+git clone https://github.com/rangasanjuau/safe-card-ui.git
+cd safe-card-ui
+```
+
+* Install dependencies:
+```bash
+npm install
+```
+
+* Start the development server:
+
+```bash
+npm run dev
+```
+
+This will start the application at http://localhost:5173.
+
+## Usage
+
+Once the application is running, you can:
+* Add new cards to the system.
+* Search card by full PAN.
+* Search card by last 4 digits of PAN.
